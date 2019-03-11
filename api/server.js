@@ -4,7 +4,7 @@ const helmet = require('helmet');
 
 const storiesRoutes = require('../config/storiesRoutes.js');
 const usersRoutes = require('../config/usersRoutes.js');
-
+const loginRoutes = require('../config/loginRoutes.js');
 
 
 const server = express();
@@ -15,5 +15,6 @@ server.use(express.json());
 
 server.use('/stories', storiesRoutes);
 server.use('/signup', usersRoutes);
+server.use('/login', loginRoutes);
 
 module.exports = server;
