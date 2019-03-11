@@ -7,12 +7,15 @@ module.exports = {
     findBy,
 }
 
+
+//creates a new user in the db
 async function add(user) {
     const [id] = await db('users').insert(user);
 
-    return findById(id);
+    
 }
 
+//finds a user by a filter term
 function findBy(filter) {
     return db('users').where(filter);
 }

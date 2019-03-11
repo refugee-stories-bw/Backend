@@ -5,8 +5,16 @@ exports.up = function(knex, Promise) {
 
         tbl.string('name', 255).notNullable();
 
-        tbl.text('story');
-    })
+        tbl.string('title', 255).notNullable();
+
+        tbl.string('imageurl', 1024);
+
+        tbl.text('story').notNullable();
+
+        tbl.boolean('isapproved')
+          .notNullable()
+          .defaultTo(false);
+        })
   
 };
 
