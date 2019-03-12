@@ -11,7 +11,7 @@ module.exports = {
 
 //creates a new user in the db
 async function add(user) {
-    const [id] = await db('users').insert(user);
+    const [id] = await db('users').insert(user, 'id');
 
     return user;
 }
