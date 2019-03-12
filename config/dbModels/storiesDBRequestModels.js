@@ -27,7 +27,7 @@ function findById(id) {
 //adds a story to the database
 function addStory(story) {
     return db('stories')
-    .insert(story)
+    .insert(story, 'id')
     
 };
 
