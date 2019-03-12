@@ -18,7 +18,7 @@ async function add(user) {
 
 //finds a user by a filter term
 function findBy(filter) {
-    return db('users').where(filter);
+    return db('users').whereRaw('LOWER(username) LIKE ?', filter.username.toLowerCase());
 }
 
 function find() {

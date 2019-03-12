@@ -10,7 +10,7 @@ const storiesRoutes = express.Router();
 //endpoint route handler to get all of the approved stories
 storiesRoutes.get('/', async (req, res) => {
     try {
-        const stories = await Stories.getAll();
+        const stories = await Stories.getApproved();
         res.status(200).json(stories);
     } catch (error) {
         res.status(500).json(error);

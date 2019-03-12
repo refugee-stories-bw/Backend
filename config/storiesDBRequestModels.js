@@ -5,6 +5,8 @@ const db = require('../database/dbConfig.js');
 module.exports = {
     getAll,
     findById,
+    addStory,
+    getApproved,
 };
 
 
@@ -19,3 +21,22 @@ function findById(id) {
       .where({id})
       .first();
 }
+
+//adds a story to the database
+function addStory(story) {
+    return db('stories')
+    .insert(story)
+    
+};
+
+//gets only the approved stories - to be used on main stories page
+function getApproved() {
+    return db('stories')
+    .whereRaw('isapproved = 1')
+};
+
+//gets only the stories that are unapproved
+function getUnapproved() {
+    return db('stories')
+    .whereRaw('isapproved = 0')
+};
