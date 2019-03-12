@@ -37,7 +37,6 @@ loginRoutes.post('/', (req, res) => {
 //middleware to check for authentication token for restricted access retrieval
 function restricted(req, res, next) {
     const token = req.headers.authorization;
-
     if (token) {
         jwt.verify(token, jwtKey, (err, decodedToken) => {
             if (err) {
