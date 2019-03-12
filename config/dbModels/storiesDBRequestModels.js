@@ -35,7 +35,7 @@ function addStory(story) {
 //gets only the approved stories - to be used on main stories page
 function getApproved() {
     return db('stories')
-    .whereRaw('isapproved = 1')
+    .whereRaw('isapproved = true')
 };
 
 //updates the story
