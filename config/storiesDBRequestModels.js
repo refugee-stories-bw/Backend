@@ -21,7 +21,7 @@ function getAll() {
 //gets only the story in the database with that particular id
 function findById(id) {
     return db('stories')
-      .where({id})
+      .where({id: Number(id)})
       .first();
 }
 
@@ -41,14 +41,14 @@ function getApproved() {
 //updates the story
 function update(story, id) {
     return db('stories')
-    .where('id', id)
+    .where('id', Number(id))
     .update(story)
 };
 
 //deletes the story
 function deleteStory(id) {
     return db('stories')
-    .where('id', id)
+    .where('id', Number(id))
     .del()
 };
 
