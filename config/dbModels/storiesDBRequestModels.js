@@ -21,9 +21,8 @@ function getAll() {
 //gets only the story in the database with that particular id
 function findById(id) {
     return db('stories')
-      .where({id: Number(id)})
-      .first();
-}
+    .where('id', Number(id))
+};
 
 //adds a story to the database
 function addStory(story) {
