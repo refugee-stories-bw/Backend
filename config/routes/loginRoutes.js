@@ -6,11 +6,11 @@ const jwtKey =
   process.env.JWT_SECRET ||
   'add a .env file to root of project with the JWT_SECRET variable';
 
-const db = require('../database/dbConfig.js');
+const db = require('../../database/dbConfig.js');
 
-const tokenService = require('../auth/token-service');
-const { authenticate } = require('../auth/authenticate');
-const Users = require('./usersDBRequestModels.js');
+const tokenService = require('../../auth/token-service');
+const { authenticate } = require('../../auth/authenticate');
+const Users = require('../dbModels/usersDBRequestModels.js');
 
 const loginRoutes = express.Router();
 
