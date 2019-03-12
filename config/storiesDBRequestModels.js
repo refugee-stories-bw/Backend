@@ -7,6 +7,9 @@ module.exports = {
     findById,
     addStory,
     getApproved,
+    update,
+    deleteStory,
+    getUnapproved
 };
 
 
@@ -35,8 +38,24 @@ function getApproved() {
     .whereRaw('isapproved = 1')
 };
 
+//updates the story
+function update(story, id) {
+    return db('stories')
+    .where('id', id)
+    .update(story)
+};
+
+//deletes the story
+function deleteStory(id) {
+    return db('stories')
+    .where('id', id)
+    .del()
+};
+
 //gets only the stories that are unapproved
 function getUnapproved() {
     return db('stories')
     .whereRaw('isapproved = 0')
 };
+
+
