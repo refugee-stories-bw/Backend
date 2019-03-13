@@ -17,13 +17,14 @@ const loginRoutes = express.Router();
 //use login info sent by user to authenticate the user as registered
 loginRoutes.post('/', (req, res) => {
     let {username, password} = req.body;
-    console.log(username);
+    console.log(`${username} logged in`);
     
     Users.findBy({username})
       .first()
       .then(user => {
           if (user && bcrypt.compareSync(password, user.password)) {
               const token = tokenService.generateToken(user);
+              console.log(`Generated token: ${token}`);
               res.status(200).json({message: 'Welcome!', token});
           } else {
               res.status(401).json({message: 'Please enter the correct username and password'});
