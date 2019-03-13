@@ -48,12 +48,40 @@ describe('server.js', () => {
 
     });
 
+    describe('POST /signup', () => {
+
+        it('responds with json & 201 created', () => {
+            return request(server)
+              .post('/signup')
+              .send({
+                  username: 'porter',
+                  password: 'imadog'
+              })
+              .set('Accept', 'application/json')
+              .expect(201)
+        });
+    });
+
+    describe('POST /login', () => {
+
+        it('responds with json & 201 created', () => {
+            return request(server)
+              .post('/login') 
+              .send({
+                  username: 'porter',
+                  password: 'imadog'
+              })
+              .set('Accept', 'application/json')
+              .expect(200)
+        });
+    });
+
     describe('GET /submissions', () => {
 
         it.skip('should return unauthorized without an auth header', () => {
             return request(server)
               .get('/submissions')
-              .set('Accept', 'application/josn')
+              .set('Accept', 'application/json', )
               .expect(401)
         });
     });
