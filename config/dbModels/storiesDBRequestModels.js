@@ -21,21 +21,20 @@ function getAll() {
 //gets only the story in the database with that particular id
 function findById(id) {
     return db('stories')
-      .where({id: Number(id)})
-      .first();
-}
+    .where('id', Number(id))
+};
 
 //adds a story to the database
 function addStory(story) {
     return db('stories')
-    .insert(story)
+    .insert(story, 'id')
     
 };
 
 //gets only the approved stories - to be used on main stories page
 function getApproved() {
     return db('stories')
-    .whereRaw('isapproved = 1')
+    .whereRaw('isapproved = true')
 };
 
 //updates the story

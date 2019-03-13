@@ -13,6 +13,7 @@ submitStoryRoutes.post('/', async (req, res) => {
         if (req.body.name == null || req.body.title == null || req.body.story == null) {
             res.status(400).json({errorMessage: "Please provide a name, title, and contents for the post."});
         } else {
+            req.body.isapproved = 0;
             const story = await Stories.addStory(req.body);
             res.status(201).json(story)
         }

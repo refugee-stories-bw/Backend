@@ -2,8 +2,6 @@
 
 const express = require('express');
 
-const db = require('../../database/dbConfig.js');
-
 const Stories = require('../dbModels/storiesDBRequestModels.js');
 
 const auth = require('../../auth/authenticate');
