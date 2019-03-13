@@ -32,7 +32,7 @@ function authenticate(req, res, next) {
 //middleware to check for admin authentication token for restricted access retrieval
 function adminAuthenticate(req, res, next) {
   const token = req.headers.authorization;
-  
+  console.log(`Received header: ${req.headers.authorization}`);
   if (token) {
       jwt.verify(token, jwtKey, (err, decodedToken) => {
           if (err) {
