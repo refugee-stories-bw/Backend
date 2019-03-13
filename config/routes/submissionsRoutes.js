@@ -58,7 +58,7 @@ submissionsRoutes.delete('/:id', auth.adminAuthenticate, async (req, res) => {
         const story = await Stories.findById(req.params.id)
         console.log(story);
         console.log(req.params.id);
-        if (story.id > 0) {
+        if (story) {
             try {
                 const destroy = await Stories.deleteStory(req.params.id);
                 if (destroy) {
