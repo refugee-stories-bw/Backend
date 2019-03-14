@@ -2,6 +2,9 @@ const request = require('supertest');
 
 const server = require('./server.js');
 
+const authenticate = require('../auth/authenticate.js');
+const db = require('../database/dbConfig.js');
+
 describe('server.js', () => {
 
     describe('GET /stories', () => {
@@ -49,12 +52,12 @@ describe('server.js', () => {
     });
 
     describe('POST /signup', () => {
-
-        it('responds with json & 201 created', () => {
+        //in order to run this test you have to change the username to a unique username
+        it.skip('responds with json & 201 created', () => {
             return request(server)
               .post('/signup')
               .send({
-                  username: 'porter',
+                  username: 'bandit',
                   password: 'imadog'
               })
               .set('Accept', 'application/json')
@@ -62,28 +65,65 @@ describe('server.js', () => {
         });
     });
 
+    
+
     describe('POST /login', () => {
 
-        it('responds with json & 201 created', () => {
+        it.skip('responds with json & 201 created', () => {
             return request(server)
               .post('/login') 
               .send({
                   username: 'porter',
                   password: 'imadog'
               })
-              .set('Accept', 'application/json')
+              .set('Accept', 'application/json', authenticate)
               .expect(200)
         });
-    });
+        
+         
 
-    describe('GET /submissions', () => {
+                
 
-        it.skip('should return unauthorized without an auth header', () => {
-            return request(server)
-              .get('/submissions')
-              .set('Accept', 'application/json', )
-              .expect(401)
+        describe('GET /submissions', () => {
+
+            let token;
+
+            beforeAll((done) => {
+                request(server)
+                .post('/login')
+                .send({
+                    username: 'user',
+                    password: 'pw',
+                })
+                .end((err, response) => {
+                    token = response.body.token; // save the token!
+                    done();
+                });
+            });
+
+            
+            it.skip('should return unauthorized without an auth header/token', () => {
+                return request(server)
+                .get('/submissions')
+                .then((response) => {
+                expect(response.statusCode).toBe('Unauthorized');
+                });
+            });
+
+            it.skip('should respond with 200 & JSON', () => {
+                return request(server)
+                  .get('/submissions')
+                  .set('Authorization', token)
+                  .then((response) => {
+                    expect(response.statusCode).toBe(200);
+                    expect(response.type).toBe('application/json');
+                  });
+            });
         });
-    });
+        
+        
+   
 
+
+    });
 });

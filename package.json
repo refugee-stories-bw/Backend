@@ -26,7 +26,7 @@
   },
   "scripts": {
     "server": "nodemon index.js",
-    "test": "jest --watch --verbose",
+    "test": "cross-env DB_ENV=testing jest --watch --verbose",
     "start": "node index.js"
   },
   "repository": {
