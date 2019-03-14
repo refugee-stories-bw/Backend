@@ -1,13 +1,13 @@
 # Refugee Stories API
-=====================
 
-####API Deployment URL :
-[https://refugee-stories-backend-rkolk.herokuapp.com/]
 
----------------------
+#### API Deployment URL :
+https://refugee-stories-backend-rkolk.herokuapp.com/
 
-##Retrieve Stories
--------------------
+---
+
+## Retrieve Stories
+---
 _HTTP Method: [GET]_  
 __URL: /stories__
 
@@ -34,10 +34,10 @@ _The returned object will look like:_
 ]
 ```
 
-======
 
-##Sign Up
--------------------
+---
+## Sign Up
+---
 _HTTP Method: [POST]_  
 __URL: /signup__
 
@@ -68,10 +68,9 @@ _The returned object will be:_
 
 ```
 
-========
-
-##Login
-------
+---
+## Login
+----
 
 _HTTP Method: [POST]_  
 __URL: /login__
@@ -102,9 +101,9 @@ _The returned object will be:_
 
 ```
 
-========
+---
 
-##Submit Story
+## Submit Story
 ------
 
 _HTTP Method: [POST]_  
@@ -140,15 +139,15 @@ _The returned object will be the story's id:_
 ]
 ```
 
-======
+---
 
-##Authorized API Calls
------
+## **Authorized API Calls**
+
 _will only render/work if a user has an authorization header_
 
-----
+---
 
-##Retrieve All Submitted Stories
+## Retrieve All Submitted Stories
 -------------------
 _HTTP Method: [GET]_  
 __URL: /submissions__
@@ -175,10 +174,10 @@ _The returned object will look like:_
     }
 ]
 ```
-=====
+---
 
-##Update a Story
---
+## Update a Story
+---
 _HTTP Method: [PUT]_  
 __URL: /submissions/:id__
 
@@ -215,10 +214,10 @@ _The returned object will be the same as the updated fields above_
 	"isapproved": true
 }
 ```
-====
+---
 
-##Delete a Story
---
+## Delete a Story
+---
 _HTTP Method: [DELETE]_  
 __URL: /submissions/:id__
 
@@ -252,4 +251,4 @@ _The returned object will be the same as the updated fields above_
     "message": "The story has been deleted."
 }
 ```
-====
+---
