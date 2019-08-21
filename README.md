@@ -1,8 +1,8 @@
 # Refugee Stories API
 
 
-#### API Deployment URL :
-https://refugee-stories-backend-rkolk.herokuapp.com/
+#### API Base URL :
+https://refugee-stories-backend-bw.herokuapp.com/
 
 ---
 
@@ -126,7 +126,7 @@ _Example_
 	"title": "This is a test2",
 	"name": "Tester",
 	"story": "Hello there.  I'm a test story, blah blah blah blah.   Blah",
-	"url": "https://http.cat/",
+	"imageurl": "https://http.cat/",
 	"isapproved": 0
 }
 ```
@@ -198,7 +198,7 @@ _Example_
 	"title": "This is a test2",
 	"name": "Tester",
 	"story": "Hello there.  I'm a test story, blah blah blah blah.   Blah",
-	"url": "https://http.cat/",
+	"imageurl": "https://http.cat/",
 	"isapproved": true
 }
 ```
@@ -210,7 +210,7 @@ _The returned object will be the same as the updated fields above_
 	"title": "This is a test2",
 	"name": "Tester",
 	"story": "Hello there.  I'm a test story, blah blah blah blah.   Blah",
-	"url": "https://http.cat/",
+	"imageurl": "https://http.cat/",
 	"isapproved": true
 }
 ```
