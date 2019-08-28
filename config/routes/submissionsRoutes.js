@@ -10,7 +10,7 @@ const submissionsRoutes = express.Router();
 
 
 //restricted endpoint for admins to view unapproved story submissions
-submissionsRoutes.get('/', auth.adminAuthenticate, async (req, res) => {
+submissionsRoutes.get('/',  async (req, res) => {
     try {
         const stories = await Stories.getAll();
         res.status(200).json(stories);
@@ -20,7 +20,7 @@ submissionsRoutes.get('/', auth.adminAuthenticate, async (req, res) => {
 });
 
 //allows admin to get a single story by the story's db id
-submissionsRoutes.get('/:id', auth.adminAuthenticate, async (req, res) => {
+submissionsRoutes.get('/:id',  async (req, res) => {
     try {
         const story = await Stories.findById(req.params.id);
         console.log(story);
@@ -36,7 +36,7 @@ submissionsRoutes.get('/:id', auth.adminAuthenticate, async (req, res) => {
 });
 
 //allows admin to update a post / approve it
-submissionsRoutes.put('/:id', auth.adminAuthenticate, async (req, res) => {
+submissionsRoutes.put('/:id',  async (req, res) => {
     
     try {
         const story = await Stories.update(req.body, req.params.id);
@@ -53,7 +53,7 @@ submissionsRoutes.put('/:id', auth.adminAuthenticate, async (req, res) => {
 });
 
 //allows admin to delete a post
-submissionsRoutes.delete('/:id', auth.adminAuthenticate, async (req, res) => {
+submissionsRoutes.delete('/:id',  async (req, res) => {
     try {
         const story = await Stories.findById(req.params.id)
         console.log(story);
