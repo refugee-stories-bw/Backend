@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-const prodDbConnection = process.env.DATABASE_URL;
+const prodDbConnection = process.env.DATABASE_URL || loaclpg;
 
 module.exports = {
 
